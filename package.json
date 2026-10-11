@@ -1,0 +1,29 @@
+{
+  "name": "manrav-2",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && node -e \"const fs=require('fs'); fs.copyFileSync('dist/index.html', 'dist/404.html'); fs.writeFileSync('dist/.nojekyll', ''); if(fs.existsSync('UPLOAD_TO_GITHUB')){ fs.copyFileSync('dist/index.html', 'UPLOAD_TO_GITHUB/index.html'); fs.copyFileSync('dist/index.html', 'UPLOAD_TO_GITHUB/404.html'); fs.writeFileSync('UPLOAD_TO_GITHUB/.nojekyll', ''); }\"",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
+    "lint": "oxlint",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "firebase": "^12.19.0",
+    "lucide-react": "^1.51.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "gh-pages": "^6.3.0",
+    "oxlint": "^1.81.0",
+    "vite": "^8.3.0",
+    "vite-plugin-singlefile": "^2.3.3"
+  }
+}

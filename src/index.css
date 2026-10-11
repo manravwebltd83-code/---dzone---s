@@ -1,0 +1,383 @@
+:root {
+  --bg-main: #FBF9F4;
+  --bg-surface: #FFFFFF;
+  --bg-subtle: #F3EFE6;
+  --bg-card: #FFFFFF;
+  --text-primary: #1C1C1C;
+  --text-secondary: #5A5A5A;
+  --text-muted: #8C8C8C;
+  --accent-gold: #C5A059;
+  --accent-gold-dark: #A3803C;
+  --accent-gold-light: #F4ECE0;
+  --border-color: #E8E2D5;
+  --border-light: #F0EAE1;
+  --shadow-sm: 0 2px 8px rgba(28, 28, 28, 0.04);
+  --shadow-md: 0 4px 20px rgba(28, 28, 28, 0.06);
+  --shadow-lg: 0 12px 36px rgba(28, 28, 28, 0.1);
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-full: 9999px;
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --transition-smooth: all 0.25s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  line-height: 1.6;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root, .app-root {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+img, video, iframe, canvas, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Headings */
+h1, h2, h3, h4, .font-heading {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Layout Container */
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 clamp(0.75rem, 3.5vw, 2rem);
+  box-sizing: border-box;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: var(--transition-smooth);
+}
+
+.btn-primary {
+  background-color: var(--text-primary);
+  color: #FFFFFF;
+  border: 1px solid var(--text-primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(197, 160, 89, 0.25);
+}
+
+.btn-accent {
+  background-color: var(--accent-gold);
+  color: #FFFFFF;
+  border: 1px solid var(--accent-gold);
+}
+
+.btn-accent:hover {
+  background-color: var(--accent-gold-dark);
+  border-color: var(--accent-gold-dark);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+  background-color: var(--accent-gold-light);
+  transform: translateY(-2px);
+}
+
+.btn-whatsapp {
+  background-color: #25D366;
+  color: #FFFFFF;
+  border: 1px solid #25D366;
+}
+
+.btn-whatsapp:hover {
+  background-color: #1DA851;
+  border-color: #1DA851;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+}
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-size: 0.725rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.badge-gold {
+  background-color: var(--accent-gold-light);
+  color: var(--accent-gold-dark);
+}
+
+.badge-in-stock {
+  background-color: #E8F5E9;
+  color: #2E7D32;
+}
+
+.badge-out-stock {
+  background-color: #FFEBEE;
+  color: #C62828;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+::-webkit-scrollbar-thumb {
+  background: #D9D2C5;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-gold);
+}
+
+/* Utilities */
+.text-gold {
+  color: var(--accent-gold);
+}
+
+.bg-cream {
+  background-color: var(--bg-main);
+}
+
+.bg-surface {
+  background-color: var(--bg-surface);
+}
+
+.bg-subtle {
+  background-color: var(--bg-subtle);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes waPulse {
+  0%, 100% {
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  }
+  50% {
+    box-shadow: 0 6px 28px rgba(37, 211, 102, 0.75);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+
+/* Modal backdrop blur */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 15, 15, 0.55);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* ==========================================================================
+   DARK MODE THEME SYSTEM ([data-theme="dark"])
+   ========================================================================== */
+[data-theme="dark"] {
+  --bg-main: #121212;
+  --bg-surface: #1E1E1E;
+  --bg-subtle: #242424;
+  --bg-card: #1E1E1E;
+  --text-primary: #F4ECE0;
+  --text-secondary: #CCCCCC;
+  --text-muted: #888888;
+  --accent-gold: #D4AF37;
+  --accent-gold-dark: #F3D26A;
+  --accent-gold-light: rgba(212, 175, 55, 0.15);
+  --border-color: #2E2E2E;
+  --border-light: #262626;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 12px 36px rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="dark"] body {
+  background-color: #121212;
+  color: #F4ECE0;
+}
+
+[data-theme="dark"] .app-root {
+  background-color: #121212 !important;
+}
+
+[data-theme="dark"] .top-bar {
+  background-color: #0A0A0A;
+  border-bottom: 1px solid #222;
+}
+
+[data-theme="dark"] .main-nav-container {
+  background-color: #1A1A1A;
+  border-bottom: 1px solid #2D2D2D;
+}
+
+[data-theme="dark"] .nav-link {
+  color: #CCCCCC;
+}
+
+[data-theme="dark"] .nav-link:hover,
+[data-theme="dark"] .nav-link.active {
+  color: #D4AF37;
+}
+
+[data-theme="dark"] .brand-name {
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .btn-primary {
+  background-color: #D4AF37;
+  color: #121212;
+  border-color: #D4AF37;
+}
+
+[data-theme="dark"] .btn-primary:hover {
+  background-color: #F3D26A;
+  color: #121212;
+}
+
+[data-theme="dark"] .product-card,
+[data-theme="dark"] .product-modal-card,
+[data-theme="dark"] .buy-now-card,
+[data-theme="dark"] .about-card-wrapper,
+[data-theme="dark"] .about-highlight-item,
+[data-theme="dark"] .motion-highlight-card,
+[data-theme="dark"] .story-content-panel,
+[data-theme="dark"] .review-card,
+[data-theme="dark"] .contact-card,
+[data-theme="dark"] .search-box,
+[data-theme="dark"] .cat-tab,
+[data-theme="dark"] .subcat-chip,
+[data-theme="dark"] .greeting-summary-box,
+[data-theme="dark"] .qr-scanner-card {
+  background-color: #1E1E1E !important;
+  border-color: #2E2E2E !important;
+  color: #F4ECE0 !important;
+}
+
+[data-theme="dark"] .search-box input {
+  background-color: #121212 !important;
+  color: #FFFFFF !important;
+  border-color: #333333 !important;
+}
+
+[data-theme="dark"] .cat-tab {
+  background-color: #242424;
+  color: #CCCCCC;
+}
+
+[data-theme="dark"] .cat-tab.active {
+  background-color: #D4AF37;
+  color: #121212;
+}
+
+[data-theme="dark"] .modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.82);
+}
